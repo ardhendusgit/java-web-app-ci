@@ -1,5 +1,5 @@
 image:
-  repository: tarunscaler/demo
+  repository: ardhendushekhar/java-app
   tag: v1
   pullPolicy: IfNotPresent
 

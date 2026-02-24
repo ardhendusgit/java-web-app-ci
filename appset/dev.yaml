@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tarun-asthana/java-web-app-ci.git
+    repoURL: https://github.com/ardhendusgit/java-web-app-ci.git
     targetRevision: HEAD
     path: helm-chart
     helm:

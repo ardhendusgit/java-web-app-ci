@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tarun-asthana/java-web-app-ci.git
+    repoURL: https://github.com/ardhendusgit/java-web-app-ci.git
     targetRevision: main  # or any branch name you use
     path: yaml
   destination:

@@ -9,5 +9,8 @@ pipeline {
             git url: "${params.GIT_REPO_URL}", branch: "main"
         }
     }
+    stage("Docker test"){
+      sh 'docker run hello-world'
+    }
   }
 }

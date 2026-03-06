@@ -11,8 +11,11 @@ pipeline {
     }
     stage("Docker test"){
       steps{
-        sh 'echo $USER'
-        sh 'docker run hello-world'
+        sh 'id'
+        sh 'id -u'
+        sh 'ls -l /var/run/docker.sock'
+        sh 'docker version'
+        # sh 'docker run hello-world'
       } 
     }
   }

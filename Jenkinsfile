@@ -10,7 +10,9 @@ pipeline {
         }
     }
     stage("Docker test"){
-      sh 'docker run hello-world'
+      steps{
+        sh 'docker run hello-world'
+      } 
     }
   }
 }

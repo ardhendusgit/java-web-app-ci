@@ -15,7 +15,6 @@ pipeline {
         sh 'id -u'
         sh 'ls -l /var/run/docker.sock'
         sh 'docker version'
-        # sh 'docker run hello-world'
       } 
     }
   }

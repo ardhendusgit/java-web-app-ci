@@ -2,6 +2,7 @@ pipeline {
   agent any
   tools{
       maven 'MAVEN3'
+      jdk 'JDK21'
   }
   parameters {
     string(name: 'GIT_REPO_URL', description: 'Enter Github Repo', defaultValue: "https://github.com/ardhendusgit/java-web-app-ci.git")

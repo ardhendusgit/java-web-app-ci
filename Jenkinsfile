@@ -39,6 +39,16 @@ pipeline {
       } 
     }
 */
+
+    stage('Test SSH') {
+      steps {
+          sshagent(credentials: ['git-ssh']) {
+              sh '''
+              ssh -o StrictHostKeyChecking=no -T git@github.com
+              '''
+          }
+      }
+    }
     stage('Update GitOps YAML') {
         steps {
         sshagent(credentials: ['git-ssh']) {

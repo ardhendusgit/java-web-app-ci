@@ -20,44 +20,37 @@ pipeline {
         }
     }
 
+    /*              cd ${GITOPS_FOLDER_PATH}
+
+              git remote set-url origin git@github.com:ardhendusgit/java-web-app-ci.git */
+
     stage("Build Artifact"){
       steps{
         sh 'mvn clean package -DskipTests'
       }
     }
-/*     stage("Build Docker Image"){
+
+    stage("Build Docker Image"){
       steps{
         sh 'docker build -t $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG .'
       }
     }
+
     stage("Push Docker Image"){
       steps{
         sh '''
           echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin
-          // docker push $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG
+          docker push $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG
         '''
       } 
     }
-*/
 
-    stage('Test SSH') {
-      steps {
-          sshagent(credentials: ['git-ssh']) {
-              sh '''
-              ssh -o StrictHostKeyChecking=no -T git@github.com
-              '''
-          }
-      }
-    }
+
     stage('Update GitOps YAML') {
         steps {
         sshagent(credentials: ['git-ssh']) {
             sh '''
-              cd ${GITOPS_FOLDER_PATH}
-
-              git remote set-url origin git@github.com:ardhendusgit/java-web-app-ci.git
-
-              sed -i "s|image: .*|image: $DOCKER_IMAGE|" deployment.yaml
+              sed -i "s|image: .*|image: $DOCKER_IMAGE|" ${GITOPS_FOLDER_PATH}/deployment.yaml
 
               git config user.name "jenkins"
               git config user.email "jenkins@ci"

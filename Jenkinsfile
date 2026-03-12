@@ -51,7 +51,7 @@ pipeline {
               git config user.name "jenkins"
               git config user.email "jenkins@ci"
 
-              git commit -am "Update image to $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG " || echo "No changes"
+              git commit -am "Update image to $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG" || echo "No changes"
               git remote set-url origin git@github.com:ardhendusgit/java-web-app-ci.git
               git push origin main
             '''

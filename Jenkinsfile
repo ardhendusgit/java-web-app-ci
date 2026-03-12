@@ -46,7 +46,7 @@ pipeline {
         steps {
         sshagent(credentials: ['git-ssh']) {
             sh '''
-              sed -i "s|image: .*|image: $DOCKER_IMAGE_NAME|" ${GITOPS_FOLDER_PATH}/deployment.yaml
+              sed -i "s|image: .*|image: $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG|" ${GITOPS_FOLDER_PATH}/deployment.yaml
 
               git config user.name "jenkins"
               git config user.email "jenkins@ci"

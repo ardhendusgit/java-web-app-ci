@@ -34,7 +34,7 @@ pipeline {
       steps{
         sh '''
           echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin
-          docker push $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG
+          // docker push $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG
         '''
       } 
     }
@@ -52,8 +52,8 @@ pipeline {
               git config user.email "jenkins@ci"
 
               git commit -am "Update image to $DOCKER_IMAGE" || echo "No changes"
-
-              git push origin main
+              git remote -v
+              //git push origin main
             '''
           }
         }

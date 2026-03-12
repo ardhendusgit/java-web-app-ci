@@ -25,7 +25,7 @@ pipeline {
         sh 'mvn clean package -DskipTests'
       }
     }
-    stage("Build Docker Image"){
+/*     stage("Build Docker Image"){
       steps{
         sh 'docker build -t $DOCKER_IMAGE_NAME:v$DOCKER_IMAGE_TAG .'
       }
@@ -38,6 +38,7 @@ pipeline {
         '''
       } 
     }
+*/
     stage('Update GitOps YAML') {
         steps {
         sshagent(credentials: ['git-ssh']) {

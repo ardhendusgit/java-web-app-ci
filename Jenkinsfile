@@ -5,7 +5,7 @@ pipeline {
       jdk 'JDK21'
   }
   parameters {
-    string(name: 'GIT_REPO_URL', description: 'Enter Github Repo', defaultValue: "https://github.com/ardhendusgit/java-web-app-ci.git")
+    string(name: 'GIT_REPO_URL', description: 'Enter Github Repo', defaultValue: "git@github.com:ardhendusgit/java-web-app-ci.git")
   }
   environment {
     DOCKER_IMAGE_NAME = "ardhendushekhar/java-app"

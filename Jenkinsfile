@@ -11,7 +11,7 @@ pipeline {
     DOCKER_IMAGE_NAME = "ardhendushekhar/java-app"
     DOCKER_CREDS = credentials('docker-pat')
     GITOPS_FOLDER_PATH = "yaml"
-    DOCKER_IMAGE_TAG = ${BUILD_NUMBER}
+    DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
   }
   stages{
     stage("Checkout"){

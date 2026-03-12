@@ -57,7 +57,7 @@ pipeline {
 
               git commit -am "Update image to $DOCKER_IMAGE" || echo "No changes"
               git remote -v
-              //git push origin main
+              git push origin main
             '''
           }
         }

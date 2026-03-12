@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: java-web
-        image: ardhendushekhar/java-app:v45
+        image: ardhendushekhar/java-app:v46
         ports:
         - containerPort: 80
